@@ -1,0 +1,79 @@
+[tool.poetry]
+name = "chatnerd"
+packages = [
+    {include = "chatnerd"},
+]
+include = ["chatnerd/chatnerd.config.yml", "chatnerd/chatnerd.models.yml", "chatnerd/chatnerd.prompts.yml"]
+exclude = ["tests"]
+version = "0.1.0"
+description = "A CLI tool for Q&A with your private documents using local LLMs and RAG (Retrieval-augmented generation)"
+authors = ["Raul On Lab <raulonlab@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/raulonlab/chatnerd"
+repository = "https://github.com/raulonlab/chatnerd"
+documentation = "https://github.com/raulonlab/chatnerd"
+keywords = ["rag", "llm", "offline-ai"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+langchain = "^0.3.19"
+langchain-community = "^0.3.18"
+langchain-core = "^0.3.40"
+langchain-openai = "^0.3.7"
+simsimd = "^3.7.7"  # Breaking changes in >3.8
+tiktoken = "^0.7.0"
+llama-cpp-python = "^0.2.56"
+chromadb = "^0.6.3"  # Breaking changes in >0.5.0
+InstructorEmbedding = "^1.0.1"
+sentence-transformers = "^3.4.1"  # Breaking changes in >2.2.2
+huggingface_hub = "^0.29.1"
+transformers = "^4.49.0"
+accelerate = "^1.2.0"
+openai = "^1.23"
+typing-extensions = "^4.9.0"
+python-dotenv = "^1.0.1"
+tqdm = "^4.66.2"
+rich = "^13.7.1"
+requests = "^2.31.0"
+optimum = "^1.12.0"
+deepmerge = "^2.0.0"
+pyyaml = "^6.0.1"
+pdfminer-six = "^20240706"
+unstructured = {extras = ["all-docs"], version = "^0.16.23"}
+pandoc = "^2.3"
+qdrant-client = "^1.8.0"
+hdbscan = "^0.8.33"
+typer = "^0.15.2"
+langchain-huggingface = "^0.1.2"
+langchain-ollama = "^0.2.3"
+
+[tool.poetry.group.dev.dependencies]
+deptry = "^0.12.0"
+pylint = "^3.1.0"
+autoflake = "^2.3.0"
+black = "^25.1.0"
+pre-commit = "^3.6.2"
+pretty-errors = "^1.2.25"
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/nightly/cpu"
+priority = "explicit"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+chatnerd = "chatnerd.__main__:main"
+
